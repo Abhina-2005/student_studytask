@@ -1,0 +1,96 @@
+#create register
+###
+POST http://127.0.0.1:8000/api/register/
+Content-Type: application/json
+
+{
+    "username":"sana",
+    "phone":"241084352",
+    "email":"sana@gmail.com",
+    "password":"sana@123"
+}
+
+
+#token ,login
+###
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username":"athul",
+    "password":"athul@123"
+}
+#  druv druv@123 d442563fe8cdfa697f09ecd75976aad40beac926
+# sana c39fb2522010363f7169781442e2c1a9b0c468c5
+# fetch tasks
+###
+GET http://127.0.0.1:8000/api/tasks/
+Accept: application/json
+Authorization: Token c39fb2522010363f7169781442e2c1a9b0c468c5
+
+# create tasks
+###
+POST http://127.0.0.1:8000/api/tasks/
+Content-Type: application/json
+Authorization: Token d442563fe8cdfa697f09ecd75976aad40beac926
+
+{
+    "subject":"python",
+    "title":"Learn decision making",
+    "description":"study if,elif,else",
+    "priority":"high",
+    "status":"pending",
+    "due_date":"2026-10-06"
+}
+
+
+# retrieve tasks
+###
+GET http://127.0.0.1:8000/api/tasks/4/
+Accept: application/json
+Authorization: Token d442563fe8cdfa697f09ecd75976aad40beac926
+
+
+# update tasks
+###
+PUT http://127.0.0.1:8000/api/tasks/1/
+Content-Type: application/json
+Authorization: Token d442563fe8cdfa697f09ecd75976aad40beac926
+
+{
+    "subject":"Django",
+    "title":"Learn serializer",
+    "description":"study modelserializer",
+    "priority":"high",
+    "status":"pending",
+    "due_date":"2026-10-01"
+}
+
+
+# update tasks
+###
+PATCH http://127.0.0.1:8000/api/tasks/5/
+Content-Type: application/json
+Authorization: Token d442563fe8cdfa697f09ecd75976aad40beac926
+
+{
+    "status":"completed"
+}
+# delete tasks
+###
+DELETE http://127.0.0.1:8000/api/tasks/1/
+Accept: application/json
+Authorization: Token eb0085ebc65d69ae1bd731ca5b5391a5fb5da197
+
+#logout
+###
+POST http://127.0.0.1:8000/api/logout/
+Content-Type: application/json
+Authorization: Token ea8252186c5abcc0972af8711545061457160c20
+
+
+#streaks
+###
+GET http://127.0.0.1:8000/api/streak/
+Content-Type: application/json
+Authorization: Token d442563fe8cdfa697f09ecd75976aad40beac926
